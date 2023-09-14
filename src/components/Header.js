@@ -9,9 +9,12 @@ function Header() {
     <div style={{backgroundImage: `url(${poster})`}} className='header-fluid'>
       <div className='navbar'>
         <div className='logo'>
-          <img src={logo} alt='tvimg' className='tv'/>
+          <img src={logo} alt='tvimg' className='tv' width="100px" height="100px"/>
           <h4 className='logoName'>Moviebox</h4>
 
+        </div>
+        <div>
+          <input type='search'/>
         </div>
 
       </div>
