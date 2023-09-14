@@ -1,4 +1,6 @@
 import React from 'react';
+import {useParams} from 'react-router-dom';
+import { useEffect, useState } from 'react';
 import {Link} from 'react-router-dom';
 import logo from '../images/tv.png';
 import {GrHomeRounded} from 'react-icons/gr';
@@ -9,13 +11,29 @@ import {BsListStars} from 'react-icons/bs';
 import {BiMobileVibration} from 'react-icons/bi';
 import {FaStar} from 'react-icons/fa';
 import {TbLogout} from 'react-icons/tb';
-import movieImg from '../images/poster2 (1).png';
 import playBtn from '../images/play.png';
 import mixedMovie from '../images/mixed-movie.png';
 
 
 function Moviedetails() {
-  return (
+    const {id} = useParams();
+    console.log(id);
+    const [singleMovie, setSingleMovie] = useState([]);
+
+    const getSingleMovie = ()=>{
+        fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=a6353f9f64549fe95239f9c5cac6dbeb`)
+        .then((resp) => resp.json())
+        .then((data) =>{
+            setSingleMovie(data);
+            console.log(data);
+        });
+    };
+    useEffect(() => {
+     getSingleMovie();
+    
+    },);
+
+    return (
     <div className='movieDetailsHold d-flex '>
         <div className='sideBar'>
             <div className='sideBarLogo'>
@@ -51,7 +69,7 @@ function Moviedetails() {
         <div className=' container-fluid movie-details'>
             <div className='row mt-2 container-fluid'>
                 <div className='movieHold col-lg-12 col-md-6 col-sm-6 br-5 '>
-                    <img src={movieImg} alt='moive'width='100%'  />
+                    <img src={`https://image.tmdb.org/t/p/original${singleMovie.poster_path}`} alt='moive' width="100%" className='imgfluid'  />
                     <img src={playBtn} alt='playbtn' className='play-Btn' width='60px' height='60px'/>
                     <i className='play mt-2'>Watch trailer</i>
                 </div>
@@ -60,20 +78,17 @@ function Moviedetails() {
             <div className='row mt-2 container-fluid'>
                 <div className='col-lg-9 col-md-9 col-sm-12'>
                     <div className="col-lg-12 col-md-12 col-sm-12 mainDetails">
-                        <span className='movieName'> Top Gun: Maverick</span>
-                        <span className='movieDate'>2022</span>
+                        <span data-testid="movie-title" className='movieName'> {singleMovie.title}</span>
+                        <span data-testid="movie-release-date" className='movieDate'>{singleMovie.release_date}</span>
                         <span className='pgRating'> PG-13</span>
-                        <span className='watchTime'> 2h 10m</span>
+                        <span data-testid="movie-runtime" className='watchTime'> {singleMovie.runtime}</span>
                         <span className='movieChoice '>Action</span>
                         <span className='movieChoice'>Drama</span>
                     </div>
                     <div className="col-lg-12 col-md-12 col-sm-12 movie-overview mt-3">
                         <div className='movie-overview'>
-                            <p className='movieOverview '>
-                                After 30 years, maverick is still pushing the envelope as a Top
-                                naval aviator, but must confront ghost of his past when he leads
-                                TOP GUN's elite graduates on a missio that demands the ultimate 
-                                sacrifice from those choosing to fly it.
+                            <p data-testid="movie-overview" className='movieOverview '>
+                            {singleMovie.overview}
                             </p>
                         </div>
                        
