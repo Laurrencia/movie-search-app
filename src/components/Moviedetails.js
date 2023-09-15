@@ -2,6 +2,7 @@ import React from 'react';
 import {useParams} from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import {Link} from 'react-router-dom';
+import {GridLoader} from 'react-spinners';
 import logo from '../images/tv.png';
 import {GrHomeRounded} from 'react-icons/gr';
 import {BsCameraReels} from 'react-icons/bs';
@@ -19,22 +20,48 @@ function Moviedetails() {
     const {id} = useParams();
     console.log(id);
     const [singleMovie, setSingleMovie] = useState([]);
+    const [error, setError] = useState(null);
+    const [loading, setLoading] = useState(false);
 
     const getSingleMovie = ()=>{
         fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=a6353f9f64549fe95239f9c5cac6dbeb`)
-        .then((resp) => resp.json())
-        .then((data) =>{
+        .then(res=>{
+            if(!res.ok){
+                throw Error("The Data could not be fetched. Check Your URL PARAMETERS")
+            }
+            return res.json()
+        }).then((data)=>{
             setSingleMovie(data);
             console.log(data);
-        });
+        })
+        .catch(err=>{
+            setError(err.message)
+        })
     };
     useEffect(() => {
      getSingleMovie();
+     setLoading(true);
+     setTimeout(()=>{
+        setLoading(false)
+     },5000)
     
-    },);
+    },[]);
 
     return (
-    <div className='movieDetailsHold d-flex '>
+    <>
+    
+        {
+            loading ?
+            <GridLoader
+        color={'#D0021B'}
+        loading={loading}
+        size={30}
+        className='loader'
+      />
+      :
+      
+      <div className='movieDetailsHold d-flex '>
+        
         <div className='sideBar'>
             <div className='sideBarLogo'>
                 <img src={logo} alt='logo' width='25px' height='25px'/>
@@ -66,7 +93,9 @@ function Moviedetails() {
                 </div>
             </div>
         </div>
+        
         <div className=' container-fluid movie-details'>
+            {error && <div className='errorM'>{error}</div>}
             <div className='row mt-2 container-fluid'>
                 <div className='movieHold col-lg-12 col-md-6 col-sm-6 br-5 '>
                     <img src={`https://image.tmdb.org/t/p/original${singleMovie.poster_path}`} alt='moive' width="100%" className='imgfluid'  />
@@ -127,8 +156,11 @@ function Moviedetails() {
             </div>
             
         </div>
+        
 
     </div>
+    }
+    </>
   )
 }
 

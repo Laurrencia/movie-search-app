@@ -6,6 +6,7 @@ import {FaSearch} from 'react-icons/fa';
 
 
 
+
 function Header() {
   
   return (
@@ -15,7 +16,7 @@ function Header() {
           <img src={logo} alt='tvimg' className='tv' width="20px" height="20px"/>
           <h4 className='logoName'>Moviebox</h4>
         </div>
-        <div className='search'>
+        <div className='searchBar'>
           <input 
             type='text'
             placeholder='What do you want to watch?'
@@ -29,6 +30,17 @@ function Header() {
 
         </div>
 
+      </div>
+      <div className='posterDetails'>
+          <h2>
+            John Wick 3: Parabellum
+          </h2>
+          {/* <div className='posterRating'>
+            <img src={rateimage}/>
+          </div>
+          <div className='posterRating'>
+            <img src={posterfruit}/>
+          </div> */}
       </div>
     </div>
       

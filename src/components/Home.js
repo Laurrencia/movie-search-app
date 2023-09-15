@@ -51,8 +51,6 @@ function Home() {
                 </div>
                 <div className ='row mt-3'>
                     {movies ? (movies.map(movie => (
-                        
-                    
                     <div className='col-lg-3 col-md-3 col-sm-6'>
                         <Link to={`/movie/${movie.id}`} className='movieLink'>
                         <card data-testid="movie-card" className='card b-none'>

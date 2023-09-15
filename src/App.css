@@ -97,6 +97,13 @@ body{
   background-color: #be123c;
   fill: #fff;
 }
+.errorM{
+  color: red;
+}
+.loader{
+  margin: 100px 100px;
+  
+}
 /* FOOTER */
 
 .footer{
