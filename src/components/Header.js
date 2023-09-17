@@ -1,3 +1,4 @@
+// import all images and dependencies needed for the task
 import React from 'react';
 import poster from '../images/poster.png';
 import logo from '../images/tv.png';
@@ -16,7 +17,7 @@ function Header() {
     <div style={{backgroundImage: `url(${poster})`}} className='header-fluid'>
       <div className='navbar'>
         <div className='logo'>
-          <img src={logo} alt='tvimg' className='tv' width="20%" height="20%"/>
+          <img src={logo} alt='tvimg' className='tv' width="30%" height="30%"/>
           <h5 className='logoName'>Moviebox</h5>
         </div>
         <div className='searchBar'>

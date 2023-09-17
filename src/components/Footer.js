@@ -1,7 +1,8 @@
+// Import all icons to be used from react icons
 import React from 'react';
 import { FaFacebookSquare, FaInstagram, FaTwitter,FaYoutube } from "react-icons/fa";
 
-
+//declare a function and return the jsx template for the footer.
 function Footer() {
   return (
     <div className='container ms-auto footer'>

@@ -23,7 +23,7 @@ function Moviedetails() {
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(true);
 
-    const getSingleMovie = ()=>{
+     const getSingleMovie = () =>{
         fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=a6353f9f64549fe95239f9c5cac6dbeb`)
         .then(res=>{
             if(!res.ok){
@@ -98,7 +98,9 @@ function Moviedetails() {
             {error && <div className='errorM'>{error}</div>}
             <div className='row mt-2 container-fluid'>
                 <div className='movieHold col-lg-12 col-md-12 col-sm-12 br-5 '>
-                    <img src={`https://image.tmdb.org/t/p/original${singleMovie.poster_path}`} alt='moive' width="100%" className='imgfluid'  />
+                   
+                    <img src={`https://image.tmdb.org/t/p/original${singleMovie.poster_path}`} alt='moive' className=' detailsImg ' width="100%" />
+                    
                     <img src={playBtn} alt='playbtn' className='play-Btn' width='60px' height='60px'/>
                     <i className='play mt-2'>Watch trailer</i>
                 </div>
@@ -139,7 +141,7 @@ function Moviedetails() {
                 </div>
                 <div className='col-lg-3 col-md-3 col-sm-12 stats'>
                     <div className='col-lg-12 col-md-12 col-sm-12 movie-star'>
-                    <p> <span><FaStar/></span> 8.5/350k</p>
+                    <p className='stared mt-2'> <span><FaStar/></span> 8.5/350k</p>
                     </div>
                     <div className='col-lg-12 col-md-12 col-sm-12 stats-btn-hold  '>
                         

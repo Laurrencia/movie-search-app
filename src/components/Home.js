@@ -53,7 +53,7 @@ function Home() {
                     {movies ? (movies.map(movie => (
                     <div className='col-lg-3 col-md-3 col-sm-6'>
                         <Link to={`/movie/${movie.id}`} className='movieLink'>
-                        <card data-testid="movie-card" className='card b-none'>
+                        <card data-testid="movie-card" className='card b-none homeCard'>
                             <img data-testid="movie-poster"  src={`https://image.tmdb.org/t/p/original${movie.poster_path}`} alt="/" width='100%'height='300px' />
                             <div className='card-body'>
                             <p data-testid="movie-release-date" className='release-date'>{movie.release_date}</p>
