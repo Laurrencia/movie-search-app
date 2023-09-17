@@ -13,24 +13,130 @@ body{
 .navbar{
   position: relative;
   color: #fff;
-  padding-left: 30px;
-  padding-right: 40px;
+  display: flex;
+  justify-content: space-evenly;
+
 }
 .header-fluid{
   width: 100%;
-  height: 80vh ;
+  height: 100vh ;
   background-position: 50% 50%;
   background-size: cover;
   left: 0;
   top: 0;
-  
 
-  
 }
 .header-fluid .poster{
   padding: 0;
   margin: 0;
 }
+.logo{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.logo .logoName{
+  margin-left: 10px;
+ 
+  font-family: Arial, Helvetica, sans-serif;
+}
+.searchBar{
+  position: relative;
+
+  align-items: flex-start;
+}
+.searchBar .input{
+  width:150%;
+  background-color: transparent;
+  border: 1px solid #fff;
+  padding: 5px 30px;
+  border-radius: 5px;
+  font-weight: 500px;
+  font-size: 12px;
+  color: #fff;
+}
+.search-logo{
+  position: absolute;
+  top: 37%;
+  left: 130%;
+}
+.input::placeholder{
+  color: white;
+  font-weight: bolder;
+  width: 100%;
+  padding-left: 0% !important;
+  
+}
+.input{
+  padding: 0 0.6rem;
+  outline: 1px solid #666666;
+}
+.menu{
+  display: flex;
+ gap: 20px;
+  margin-right: 20px;
+ 
+  
+}
+.signIn{
+ width: 100%;
+  
+  
+}
+.menu .menuBtn{
+  background-color: #be123c;
+  border-radius: 50%;
+  cursor: pointer;
+ 
+}
+.posterDetails{
+  display: block;
+  position: absolute;
+  top: 22%;
+  left: 0;
+  width: 90%;
+  color: #fff;
+  margin-left: 20px;
+  align-items: flex-start;
+
+}
+.posterDetails h1{
+  font-size: 2.5rem;
+  font-weight: 700;
+  font-family: sans-serif;
+  
+}
+
+.posterRate{
+  display: inline-flex;
+  gap: 50px;
+}
+.posterRating span{
+  margin-left: 5px;
+  font-size: 12px;
+}
+.posterOverview{
+  font-size: 14px;
+  font-family: sans-serif;
+  width: 80%;
+}
+.posterBtn{
+  background-color: #be123c !important;
+  padding: 0px 20px;
+  cursor: pointer;
+
+}
+
+.posterplay{
+  text-transform: uppercase;
+  margin-left: 5px;
+  font-size: 12px;
+}
+
+
+
+
 
 
 /* HOME PAGE */
@@ -102,7 +208,7 @@ body{
 }
 .loader{
   margin: 100px 100px;
-  
+
 }
 /* FOOTER */
 
@@ -126,13 +232,13 @@ body{
 }
 .footerLink small{
   margin: 10px 10px 0;
-  font-size: 10px;
+  font-size: 14px;
   color: rgba(17, 24, 39, 1);
   font-weight: 700;
 }
  .copyRight span{
   text-align: center;
-  font-size: 10px;
+  font-size: 14px;
   color:rgba(156, 163, 175, 1) ;
 }
 
@@ -164,6 +270,7 @@ body{
 .sideBarLogo span{
  color: rgba(0, 0, 0, 1);
  font-weight: 900;
+ 
 }
 .sideBar .sideBarNav{
   color:  rgba(0, 0, 0, 1);
@@ -284,8 +391,8 @@ body{
 }
 .castList p{
   color: #333333;
-  font-size: 12px;
-  line-height: 0.5;
+  font-size: 13px;
+  
 }
 .castList span{
   color: #be123c;
@@ -365,6 +472,99 @@ body{
   text-align: center;
   
 }
+
+/* RESPONSIVE DESIGN */
+@media screen and (max-width:1050px){
+  
+  .searchBar{
+    margin-left: 20px;
+  }
+  .searchBar .input{
+    font-size: 12px;
+  }
+  
+  .posterDetails h1{
+    font-size: 2rem;  
+  }
+  .posterRating span{
+    
+    font-size: 12px;
+  }
+ 
+}
+
+@media screen and (max-width:870px){
+  .navbar{
+    position: relative;
+    color: #fff;
+    display: flex;
+    justify-content: space-evenly;
+  
+  }
+  .posterOverview{
+    font-size: 12px;
+    width: 99%;
+  }
+  .posterDetails h1{
+    font-size: 1.5rem;
+  }
+  .posterplay{
+    font-size: 12px;
+  }
+   .logoName{
+    font-size: 18px;
+  }
+  .searchBar input{
+    display: none;
+  }
+  .posterBtn{
+    padding: 0px 5px;
+    cursor: pointer;
+  
+  }
+  .posterBtn i{
+    font-size: 10px;
+  }
+
+ 
+  
+  .sideBar .sideBarLogo{
+    gap: 10px;
+  }
+  .sideBarLogo span{
+   display: none;
+   
+  }
+  
+  .sideLink span{
+    margin-left: 5px
+  }
+  
+  
+  .sideBarNav .ads{
+    display: none;
+    
+  }
+  
+
+  
+}
+@media screen and (max-width:500px){
+  .logoName{
+    display: none;
+  }
+  .searchBar{
+    display: none;
+  }
+  .signIn{
+    font-size: 14px;
+  }
+  .sideLink span{
+    display: none;
+  }
+  
+}
+
 
 
 

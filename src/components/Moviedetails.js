@@ -21,7 +21,7 @@ function Moviedetails() {
     console.log(id);
     const [singleMovie, setSingleMovie] = useState([]);
     const [error, setError] = useState(null);
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
 
     const getSingleMovie = ()=>{
         fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=a6353f9f64549fe95239f9c5cac6dbeb`)
@@ -40,7 +40,7 @@ function Moviedetails() {
     };
     useEffect(() => {
      getSingleMovie();
-     setLoading(true);
+     window.scrollTo(0, 0);
      setTimeout(()=>{
         setLoading(false)
      },5000)
@@ -97,7 +97,7 @@ function Moviedetails() {
         <div className=' container-fluid movie-details'>
             {error && <div className='errorM'>{error}</div>}
             <div className='row mt-2 container-fluid'>
-                <div className='movieHold col-lg-12 col-md-6 col-sm-6 br-5 '>
+                <div className='movieHold col-lg-12 col-md-12 col-sm-12 br-5 '>
                     <img src={`https://image.tmdb.org/t/p/original${singleMovie.poster_path}`} alt='moive' width="100%" className='imgfluid'  />
                     <img src={playBtn} alt='playbtn' className='play-Btn' width='60px' height='60px'/>
                     <i className='play mt-2'>Watch trailer</i>
